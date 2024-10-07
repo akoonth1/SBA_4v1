@@ -61,16 +61,17 @@ async function getWolframAlpha(input_query) {
     }
 }
     
-const search_box = document.getElementById("6");
+const search_box = document.getElementById("9");
+search_box.innerHTML ="<br><br><h3>WolfRam Alpha Search</h3> <br>";
 search_box.style.display = "block";
 search_box.appendChild(document.createElement("input"));
 search_box.appendChild(document.createElement("button"));
-search_box.children[0].placeholder = "Enter a question";
-search_box.children[1].innerHTML = "Search";
-search_box.children[1].setAttribute("required", "true");
-search_box.children[1].addEventListener("click", function() {
-let search_value = search_box.children[0].value;
+search_box.children[4].placeholder = "Enter a question";
+search_box.children[5].innerHTML = "Search";
+search_box.children[5].setAttribute("required", "true");
+search_box.children[5].addEventListener("click", function() {
+let search_value = search_box.children[4].value;
 console.log(search_value);
 getWolframAlpha(search_value);
 });
-//getWolframAlpha();
+getWolframAlpha();
