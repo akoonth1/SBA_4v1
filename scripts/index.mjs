@@ -28,4 +28,4 @@ export async function getpun() {
         `;
     }
 }
-getpun();
+//getpun();

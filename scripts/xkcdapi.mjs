@@ -44,4 +44,4 @@ export async function getComic() {
 
 
 //https://xkcd.now.sh/?comic=303
-getComic();
+//getComic();
