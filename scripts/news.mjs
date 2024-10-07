@@ -7,7 +7,7 @@ let articles = [];
 const key = "55463e1d1fca41749fea3cc9493a65ae";
 const url = `https://newsapi.org/v2/everything?q=keyword`;
 
-async function fetchNews() {
+export async function fetchNews() {
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -26,24 +26,41 @@ async function fetchNews() {
         console.log(articles.length);
         let title_list =[]
         for (let i = 0; i < articles.length; i++) {
-            title_list.push(articles[i].title);
+            title_list.push({"title":articles[i].title, "description":articles[i].description, "url":articles[i].url});
         }
-
+        //console.log(articles)
         console.log(title_list);
          // Create a select element
          let selectElement = `<h2>News</h2><select id="newsSelect">`;
          for (let i = 0; i < title_list.length; i++) {
-             selectElement += `<option value="${i}">${title_list[i]}</option>`;
+             selectElement += `<option value="${i}">${title_list[i].title}</option>`;
          }
          selectElement += `</select>`;
  
          // Set the innerHTML of the target element
-         document.getElementById("7").innerHTML = selectElement;
-         document.getElementById("7").style.display = "block";
-            document.getElementById("newsSelect").style.width = "80%";
+         document.getElementById("8").innerHTML = selectElement;
+         document.getElementById("8").style.display = "block";
+        document.getElementById("newsSelect").style.width = "80%";
+
+        // Add an event listener to the select element
+        document.getElementById("newsSelect").addEventListener("change", function() {
+            let index = document.getElementById("newsSelect").value;
+            let description = title_list[index].description;
+            let url = title_list[index].url;
+            document.getElementById("8").innerHTML = selectElement+`<br><br>` +description + `<a href="${url}">Read More</a>`;
+            document.getElementById("8").style.display = "block";
+           document.getElementById("newsSelect").style.width = "80%";
+            // console.log(index);
+        
+            // 
+            // console.log(url);
+            // window.open(url, "_blank");
+        });
+            
+
+
     } catch (error) {
         console.error("Error fetching news:", error);
     }
 }
 
-fetchNews();

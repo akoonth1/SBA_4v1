@@ -2,11 +2,8 @@
 import {getlocation_from_ip as zippy} from './ip.mjs';
 
 
-// let zip = async function zippy() {
-//     let zip = await zippy();
-//     console.log(zip);
-//     return zip;
-// }
+
+export async function getWeather() {
 let location = await zippy();
 let zip = await location.zipcode;
 
@@ -20,7 +17,6 @@ let weather_key ="7N4DRZS9RZ9TYNNQVC3ZLU7KN";
 let weather_url =`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${zip}?key=${weather_key}`
 let weather_details ={};
 
-async function getWeather() {
     try {
         const response = await fetch(weather_url);
         const data = await response.json();

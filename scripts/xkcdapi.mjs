@@ -23,7 +23,10 @@ export async function getComic() {
         }
 
         // Set the innerHTML of the comicElement
-        comicElement.innerHTML = `<img src="${data.img}" alt="xkcd" width="100%" height="100%"> <p>${data.alt}</p>`;
+        comicElement.innerHTML = ` <div class="image-container"><img src="${data.img}" alt="xkcd" width="100%" height="100%">  
+         <div class="overlay-text" >${data.alt}</div>
+        </div>`;
+        comicElement.style.height = "100%";
        // Append the comicElement to the div with id '9'
        const container = document.getElementById("9");
        if (container) {
@@ -39,4 +42,6 @@ export async function getComic() {
     }
 }
 
+
+//https://xkcd.now.sh/?comic=303
 getComic();

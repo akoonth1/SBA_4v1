@@ -4,7 +4,7 @@
 
 
 
-async function getQuote() {
+export async function getQuote() {
     const url = `https://api.quotable.io/quotes/random`;
     try {
         const response = await axios.get(url);
@@ -31,4 +31,3 @@ async function getQuote() {
        reloaded.addEventListener("click", getQuote);
 }
 
-//getQuote();

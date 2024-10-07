@@ -2,6 +2,7 @@
 
 
 
+export async function fetchFeaturedArticle() {
 
 const wikikey = {
     "Client ID": "9257124cf28e307d13c02c5653959c21",
@@ -24,7 +25,6 @@ const date = `${year}/${month}/${day}`; // Current date in YYYY/MM/DD format
 const url = `${base_url}${language_code}/featured/${date}`;
 console.log(url);
 
-async function fetchFeaturedArticle() {
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -52,4 +52,4 @@ async function fetchFeaturedArticle() {
     }
 }
 
-//fetchFeaturedArticle();
+
