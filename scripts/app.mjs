@@ -2,7 +2,7 @@
 
 // http://api.wolframalpha.com/v2/query
 
-//PLease enabmlke CORS demo on heroKu
+//PLease enable CORS demo on heroKu
 async function getWolframAlpha(input_query) {
     const appid = "XYQUGA-HHLQ7H6JAG";
     let input = input_query;
