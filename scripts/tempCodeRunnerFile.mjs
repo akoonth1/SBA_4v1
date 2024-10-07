@@ -1,0 +1,1 @@
+https://cors-anywhere.herokuapp.com/http://api.wolframalpha.com/v2/query?input

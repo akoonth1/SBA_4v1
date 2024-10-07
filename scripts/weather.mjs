@@ -43,4 +43,4 @@ async function getWeather() {
     }
 }
 
-getWeather();
+//getWeather();

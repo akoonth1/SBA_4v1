@@ -11,9 +11,9 @@ async function getAPOD() {
         const data = await response.json();
         console.log(data.url);
         // Ensure the element with ID 'div' exists
-        const divElement = document.getElementById("5");
+        const divElement = document.getElementById("4");
         divElement.style.width = "100%";
-        divElement.style.opacity = "0.5";
+        divElement.style.opacity = "0.8";
      
         //divElement.style.position = "absolute";
         //console.log(divElement);
@@ -21,7 +21,7 @@ async function getAPOD() {
         if (divElement) {
             divElement.innerHTML = `<img src="${data.url}" alt="APOD" width="100%" height="100%"> <p title=${data.explanation}></p>`;
            // divElement.style.display = "flex";
-           divElement.style.border-radius; "15px";
+          // divElement.style.border-radius; "15px";
 
          
             comic();
