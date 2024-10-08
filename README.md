@@ -21,7 +21,7 @@
 
 ### Project Description
 
-This project is a morning information app, meant to inform and entertain you. The app is  split into 8-9 pieces calling across several apis. Cors-anywhere was used to get around the limitations of only using Javascript. Please enable https://cors-anywhere.herokuapp.com/corsdemo before starting the application for full functionality. Note 429 errors can occur from calling an api too often. For the quote section of the app you may need to unblock the origin url for full functionality. 
+This project is a morning information app, meant to inform and entertain you. The app is  split into 8-9 pieces calling across several apis. Cors-anywhere was used to get around the limitations of only using Javascript. Please enable https://cors-anywhere.herokuapp.com/corsdemo before starting the application for full functionality. Note 429 errors can occur from calling an api too often. For the quote section of the app you may need to unblock the origin url for full functionality.
 
 
 [GitHub Repository](https://github.com/akoonth1/SBA_4v1 "GitHub SBA4")
