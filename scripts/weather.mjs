@@ -24,11 +24,11 @@ let weather_details ={};
         const response = await fetch(weather_url);
         const data = await response.json();
         console.log(data);
-        console.log(data.days[0].tempmin);
-        console.log(data.days[0].tempmax);
-        console.log(data.days[0].conditions);
-        console.log(data.currentConditions);
-        console.log(data.currentConditions.temp);
+        // console.log(data.days[0].tempmin);
+        // console.log(data.days[0].tempmax);
+        // console.log(data.days[0].conditions);
+        // console.log(data.currentConditions);
+        // console.log(data.currentConditions.temp);
         document.getElementById("2").innerHTML = `
             <h2>Weather for ${location.city}</h2>
             <h3>Current Temp: ${data.currentConditions.temp}°F</h3>
@@ -39,6 +39,7 @@ let weather_details ={};
         document.getElementById("2").style.display = "block";
     } catch (error) {
         console.error("Error fetching weather:", error);
+        //second api for weather location is less accurate but will still provide weather data
 
         try {
             const fallbackUrl = `https://api.weather.gov/points/${location.latitude},${location.longitude}`;
@@ -71,6 +72,6 @@ let weather_details ={};
 
 }}
 
-getWeather();
+//getWeather();
 
 

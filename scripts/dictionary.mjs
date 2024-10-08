@@ -14,4 +14,22 @@
 
 
 
+import fs from 'fs';
+import csv from 'csv-parser';
+
+const word_list = [];
+
+fs.createReadStream('path/to/your/wordlist.csv')
+  .pipe(csv())
+  .on('data', (row) => {
+    // Assuming the CSV has a column named 'word'
+    word_list.push(row.word);
+  })
+  .on('end', () => {
+    console.log(word_list);
+    // You can now work with the word list array
+  })
+  .on('error', (error) => {
+    console.error('Error reading CSV file:', error);
+  });
 
