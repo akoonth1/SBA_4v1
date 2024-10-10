@@ -1,26 +1,29 @@
-console.log("Hello, World! script.mjs working");
-
-import { displayClock  as clock} from "./clock.mjs";
-import { getComic as comic} from "./xkcdapi.mjs";
-import {getAPOD} from "./apod.mjs";
+// Import necessary functions
+import { fetchFeaturedArticle } from "./wiki.mjs";
+import { getAPOD } from "./apod.mjs";
+import { getComic } from "./xkcdapi.mjs"; // Ensure this function is imported
+import { displayClock as clock } from "./clock.mjs"; // Ensure this function is imported
+import { getWeather  as weather} from "./weather.mjs"; // Ensure this function is imported
+import { getQuote } from "./quote.mjs";
+import { getpun } from "./wordplay.mjs";
 import {fetchNews} from "./news.mjs";
-import {fetchFeaturedArticle} from "./wiki.mjs";
-import {getQuote} from "./quote.mjs";
-import {getWeather} from "./weather.mjs";
-import { getpun } from "./index.mjs";   
+//import fs from 'fs';
+//import { word_of_the_day } from "./dictionary.mjs";
 
+
+fetchFeaturedArticle();
+weather();
+getQuote();
 getAPOD();
 clock();
-comic();
+getComic();
+//getpun();
 fetchNews();
-fetchFeaturedArticle();
-getQuote();
-getWeather();
-getpun();
-let activeElement;
+
+// Define the activeElement variable
+let activeElement = null;
 
 const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 ids.forEach(id => {
     document.getElementById(id.toString()).addEventListener("click", function (event) {
         event.stopPropagation(); // Prevent the body click event from firing
@@ -29,56 +32,52 @@ ids.forEach(id => {
 
         // Reset the styles of the previously active element
         if (activeElement && activeElement !== element) {
+            activeElement.classList.remove("active");
             resetElementStyles(activeElement);
         }
 
         // Apply new styles to the clicked element
-        element.style.display = "flex";
-        element.style.backgroundColor = "red";
-        element.style.position = "absolute";
-        element.style.top = "50%";
-        element.style.left = "50%";
-        element.style.transform = "translate(-50%, -50%)";
-        element.style.justifyContent = "center";
-        element.style.alignItems = "center";
-        element.style.height = "50vh"; // Adjust as needed
-        element.style.width = "50vw"; // Adjust as needed
-        element.style.borderRadius = "10px";
-        element.style.boxShadow = "10px 10px 10px black";
-        element.style.margin = "25px";
-        element.style.zIndex = "1000";
+        element.classList.add("active");
 
         // Update the active element
         activeElement = element;
 
-        //Call specific functions 
+        if (activeElement === element) {
+            return; // Do nothing if the clicked element is already active
+        }
+
+        // Call specific functions based on the ID
         switch (id) {
             case 1:
                 fetchFeaturedArticle();
                 break;
             case 2:
                 // Call function for ID 2
+             weather();
                 break;
             case 3:
                 // Call function for ID 3
+                getQuote();
                 break;
             case 4:
                 getAPOD();
                 break;
             case 5:
-                // Call function for ID 5
+                clock();
                 break;
             case 6:
-                clock();
+                getComic(); 
                 break;
             case 7:
                 // Call function for ID 7
+                //getpun();
                 break;
             case 8:
                 // Call function for ID 8
+                fetchNews();
                 break;
             case 9:
-                // Call function for ID 9
+                getComic(); // Ensure the comic function is called for ID 9
                 break;
             default:
                 break;
@@ -89,6 +88,7 @@ ids.forEach(id => {
 // Add event listener to the body to reset the active element when the body is clicked
 document.body.addEventListener("click", function () {
     if (activeElement) {
+        activeElement.classList.remove("active");
         resetElementStyles(activeElement);
         activeElement = null;
     }
@@ -96,6 +96,7 @@ document.body.addEventListener("click", function () {
 
 // Function to reset the styles of an element
 function resetElementStyles(element) {
+    console.log("Resetting styles for element:", element.id); // Debugging log
     element.style.display = "";
     element.style.backgroundColor = "";
     element.style.position = "";
@@ -111,3 +112,5 @@ function resetElementStyles(element) {
     element.style.margin = "";
     element.style.zIndex = ""; // Reset z-index
 }
+
+

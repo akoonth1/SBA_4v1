@@ -27,12 +27,12 @@ export async function getComic() {
          <div class="overlay-text" >${data.alt}</div>
         </div>`;
         comicElement.style.height = "100%";
-       // Append the comicElement to the div with id '9'
-       const container = document.getElementById("3");
+       // Append the comicElement to the div with id '6'
+       const container = document.getElementById("6");
        if (container) {
            container.appendChild(comicElement);
        } else {
-           console.error("Container with id '3' not found");
+           console.error("Container with id '6' not found");
        }
 
 
