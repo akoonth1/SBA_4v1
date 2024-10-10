@@ -38,23 +38,25 @@ export async function fetchNews() {
          selectElement += `</select>`;
  
          // Set the innerHTML of the target element
-         document.getElementById("8").innerHTML = selectElement;
+         document.getElementById("8").innerHTML = selectElement + `<div id="newsDescription"></div>`;
          document.getElementById("8").style.display = "block";
         document.getElementById("newsSelect").style.width = "80%";
 
         // Add an event listener to the select element
         document.getElementById("newsSelect").addEventListener("change", function() {
+            //document.getElementById("8").innerHTML = "";
             let index = document.getElementById("newsSelect").value;
             let description = title_list[index].description;
             let url = title_list[index].url;
-            document.getElementById("8").innerHTML = selectElement+`<br><br>` +description + `<a href="${url}">Read More</a>`;
-            document.getElementById("8").style.display = "block";
+            console.log(description);
+            document.getElementById("newsDescription").innerHTML = `<br>${description}<br><a href="${url}" target="_blank">Read More</a>`;
+          document.getElementById("8").style.display = "block";
            document.getElementById("newsSelect").style.width = "80%";
             // console.log(index);
         
             // 
             // console.log(url);
-            // window.open(url, "_blank");
+            //window.open(url, "_blank");
         });
             
 
